@@ -21,6 +21,7 @@ $(document).ready(function(){
   //When the game finish
   function finish(){
     alert("Game Over!");
+    console.log("Game Over");
   }
 
   //final_check
@@ -183,7 +184,7 @@ $(document).ready(function(){
     val[row][col] = (pad_value(step) == "X" ? 10 : 100);
     $(pad_id).html(pad_value(step));
     $(pad_id).addClass("disabled");
-    // check_block(row, col);
+    console.log("Step " + (step+1) + ": Pad_" + row + "_" + col + " (" + pad_value(step) + ")")
     check_result(row, col);
     step++;
   });
