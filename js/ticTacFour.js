@@ -20,8 +20,12 @@ $(document).ready(function(){
 
   //When the game finish
   function finish(){
-    alert("Game Over!");
-    console.log("Game Over");
+    alert("Game Over at " + (step+1) + " for " + pad_value(step));
+    console.log("Game Over at " + (step+1) + " for " + pad_value(step));
+  }
+
+  function draw(){
+    alert("DRAW!");
   }
 
   //final_check
@@ -154,6 +158,8 @@ $(document).ready(function(){
       finish();
     }else if(check_block(row, col) == 1){
       finish();
+    }else if(step == 15){
+      draw();
     }
   }
 
