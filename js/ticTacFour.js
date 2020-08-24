@@ -184,7 +184,7 @@ $(document).ready(function(){
     // gridHTML += "<div class='row'>"
     for(var j = 1 ; j <= 4 ; j++){
       // gridHTML += "<div class='column'><div class='ui pad button' id='pad_"+i+"_"+j+"'>__</div></div>";
-      gridHTML += "<div class='ui pad' id='pad_"+i+"_"+j+"'><img src='../img/pad_default.svg' width='100%'></div></div>";
+      gridHTML += "<div class='ui pad' id='pad_"+i+"_"+j+"'><img src='img/pad_default.svg' width='100%'></div></div>";
     }
     // gridHTML += "</div>";
   }
@@ -203,7 +203,7 @@ $(document).ready(function(){
     var col = parseInt(pad_id.slice(7));
     val[row][col] = (pad_value(step) == "X" ? 10 : 100);
     // $(pad_id).html(pad_value(step));
-    var bg_pad = "<img src='../img/pad_" + pad_value(step) + ".svg' width='100%'>";
+    var bg_pad = "<img src='img/pad_" + pad_value(step) + ".svg' width='100%'>";
     $(pad_id).html(bg_pad);
     $(pad_id).addClass("disabled");
     console.log("Step " + (step+1) + ": Pad_" + row + "_" + col + " (" + pad_value(step) + ")")
