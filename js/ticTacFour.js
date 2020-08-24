@@ -19,13 +19,26 @@ $(document).ready(function(){
   }
 
   //When the game finish
-  function finish(){
-    alert("Game Over at " + (step+1) + " for " + pad_value(step));
+  function finish(method, method_val1=false, method_val2=false){
+    // alert("Game Over at " + (step+1) + " for " + pad_value(step));
+    $(".pad").addClass("disabled");
+    $(".pad").css("opacity", "0.25");
     console.log("Game Over at " + (step+1) + " for " + pad_value(step));
+    console.log(method + (method_val1) + (method_val2));
+    if(method == "row"){
+      for (var i = 1; i <= 4; i++) {
+        $("#pad_" + method_val1 + "_" + i).css("opacity", "1");
+      }
+    }else if(method == "col"){
+      for (var i = 1; i <= 4; i++) {
+        $("#pad_" + i + "_" + method_val1).css("opacity", "1");
+      }
+    }
   }
 
   function draw(){
-    alert("DRAW!");
+    $(".pad").addClass("disabled");
+    $(".pad").css("opacity", "0.25");
   }
 
   //final_check
@@ -149,15 +162,15 @@ $(document).ready(function(){
   //Check reult after user tap the pad
   function check_result(row, col){
     if(check_row(row) == 1){
-      finish();
+      finish("row", row);
     }else if(check_col(col) == 1){
-      finish();
+      finish("col", col);
     }else if(check_cross_1() == 1){
-      finish();
+      finish("cross_1");
     }else if(check_cross_2() == 1){
-      finish();
+      finish("cross_2");
     }else if(check_block(row, col) == 1){
-      finish();
+      finish("block", row, col);
     }else if(step == 15){
       draw();
     }
@@ -168,11 +181,12 @@ $(document).ready(function(){
 
   //Render the pad grid
   for(var i = 1 ; i <= 4 ; i++){
-    gridHTML += "<div class='row'>"
+    // gridHTML += "<div class='row'>"
     for(var j = 1 ; j <= 4 ; j++){
-      gridHTML += "<div class='column'><div class='ui pad button' id='pad_"+i+"_"+j+"'>__</div></div>";
+      // gridHTML += "<div class='column'><div class='ui pad button' id='pad_"+i+"_"+j+"'>__</div></div>";
+      gridHTML += "<div class='ui pad' id='pad_"+i+"_"+j+"'><img src='../img/pad_default.svg' width='100%'></div></div>";
     }
-    gridHTML += "</div>";
+    // gridHTML += "</div>";
   }
 
   $('#mainGrid').html(gridHTML);
@@ -188,7 +202,9 @@ $(document).ready(function(){
     var row = parseInt(pad_id.slice(5, 6));
     var col = parseInt(pad_id.slice(7));
     val[row][col] = (pad_value(step) == "X" ? 10 : 100);
-    $(pad_id).html(pad_value(step));
+    // $(pad_id).html(pad_value(step));
+    var bg_pad = "<img src='../img/pad_" + pad_value(step) + ".svg' width='100%'>";
+    $(pad_id).html(bg_pad);
     $(pad_id).addClass("disabled");
     console.log("Step " + (step+1) + ": Pad_" + row + "_" + col + " (" + pad_value(step) + ")")
     check_result(row, col);

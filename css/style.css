@@ -1,0 +1,52 @@
+body {
+  background-color: #000E;
+  color: white;
+}
+
+.ui.special.container {
+  max-width: 500px !important;
+  line-height: 0 !important;
+  padding-top: 50px;
+}
+
+h1, h2 {
+  font-family: 'Courier New', Courier, monospace !important;
+  text-align: center;
+  font-size: 36pt;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-size: 18pt;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+#mainGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.pad {
+  background-color: #0000;
+  border-radius: 5px;
+}
+
+.pad img {
+  border-radius: 5px;
+}
+
+.pad.disabled {
+  pointer-events: none !important;
+}
+
+.pad:hover {
+  cursor: pointer;
+  border: #1FACFE solid 2px;
+}
+/*# sourceMappingURL=style.css.map */

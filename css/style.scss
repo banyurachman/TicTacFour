@@ -1,0 +1,50 @@
+$mainBlue : #1FACFE;
+
+body{
+    background-color: #000E;
+    color: white;
+}
+
+.ui.special.container{
+    max-width: 500px !important;
+    line-height: 0 !important;
+    padding-top: 50px;
+}
+
+h1, h2{
+    font-family: 'Courier New', Courier, monospace !important;
+    text-align: center;
+    font-size: 36pt;
+    margin-bottom: 0px;
+    
+}
+
+h2{
+    font-size: 18pt;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+#mainGrid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 5px;
+}
+.pad{
+    background-color: #0000;
+    border-radius: 5px;
+
+    img{
+        border-radius: 5px;
+    }
+
+    &.disabled{
+        pointer-events: none !important;
+    }
+    
+    &:hover{
+        cursor: pointer;
+        border: $mainBlue solid 2px;
+    }
+}
